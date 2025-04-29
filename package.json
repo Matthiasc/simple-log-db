@@ -1,0 +1,51 @@
+{
+  "name": "@matthiasc/simple-log-db",
+  "version": "1.0.2",
+  "description": "parse obsidian markup to regular markdown",
+  "main": "./lib/cjs/index.js",
+  "types": "./lib/cjs/types/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "engines": {
+    "node": ">=23.0.0"
+  },
+  "scripts": {
+    "test": "vitest",
+    "release": "npm run build && standard-version && git push --follow-tags && npm publish",
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
+    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matthiasc/simple-log-db.git"
+  },
+  "author": "matthias.crommelinck@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matthiasc/simple-log-db/issues"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/types/index.d.ts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    }
+  },
+  "homepage": "https://github.com/Matthiasc/simple-log-db#readme",
+  "devDependencies": {
+    "standard-version": "^9.5.0",
+    "typescript": "^4.8.4",
+    "vitest": "^3.1.2"
+  },
+  "dependencies": {
+    "read-last-lines": "^1.8.0"
+  }
+}
