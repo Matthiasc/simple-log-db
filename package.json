@@ -1,7 +1,7 @@
 {
   "name": "@matthiasc/simple-log-db",
-  "version": "1.0.3",
-  "description": "parse obsidian markup to regular markdown",
+  "version": "1.0.4",
+  "description": "simple append log database for nodejs",
   "main": "./lib/cjs/index.js",
   "types": "./lib/cjs/types/index.d.ts",
   "files": [
